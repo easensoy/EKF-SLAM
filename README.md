@@ -1,7 +1,7 @@
 # EKF-MATLAB
 EKF SLAM Implementation in MATLAB
 
-Overall, this code implements the EKF-SLAM algorithm in a simulated environment and visualizes the estimated trajectory and map of landmarks based on sensor measurements. EKF-SLAM is a technique used in robotics to estimate the pose of a robot and create a map of its environment using sensor measurements. 
+This application is about the implementation of the EKF-SLAM algorithm in a simulated environment and visualises the estimated trajectory and map of landmarks based on sensor measurements. EKF-SLAM is a technique used in robotics to estimate the pose of a robot and create a map of its environment using sensor measurements. 
 
 ![EKF SLAM Result](https://github.com/easensoy/EKF-SLAM/assets/76905667/089e456c-4cdb-4597-b8a3-fca72dcf2b29)
 
