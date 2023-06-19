@@ -3,45 +3,20 @@ EKF SLAM Implementation in MATLAB
 
 This application is about the implementation of the EKF-SLAM algorithm in a simulated environment and visualises the estimated trajectory and map of landmarks based on sensor measurements. EKF-SLAM is a technique used in robotics to estimate the pose of a robot and create a map of its environment using sensor measurements. 
 
+The code generates control inputs (velocity and yaw rate) and simulates observations of landmarks based on the robot's true pose. It also adds process and observation noise to the inputs and observations, respectively.
+
 ![EKF SLAM Result](https://github.com/easensoy/EKF-SLAM/assets/76905667/089e456c-4cdb-4597-b8a3-fca72dcf2b29)
 
-## The code is depicted below
+## EKF SLAM:
 
-### Initialization
+a. Prediction: It predicts the robot's pose using the motion model and updates the covariance matrix.
 
-Various variables and parameters are defined, including simulation time, simulation end time, time step, number of simulation steps, and storage variables for the calculation results.
+b. Update: For each observed landmark, it calculates the innovation (difference between the predicted and observed measurements) and updates the estimate using the Kalman gain. If a new landmark is observed, it is added to the state vector and covariance matrix.
 
-### State Vector and Covariance Initialization
+c. Correction: It corrects the estimated pose by adjusting the robot's orientation.
 
-The state vector represents the estimated pose of the robot and is initialized as [x, y, yaw] (position and orientation).
-The true state vector represents the ground truth pose of the robot and is initially set to the estimated pose.
-The dead reckoning state vector (xd) is also initialized as the true state.
+Then, it stores the simulation results (true pose, dead reckoning estimate, EKF SLAM estimate, observations, etc.) for analysis and visualization.
 
-### Covariance Matrices
+Furthermore, it visualises the simulation results by plotting the true pose, dead reckoning estimate, EKF SLAM estimate, observed landmarks, and true landmarks. It also displays the observed lines between the robot and landmarks.
 
-The covariance matrix (R) is used for the prediction step and models the uncertainty in the motion model.
-The covariance matrix (Q) is used for the observation step and models the uncertainty in the sensor measurements.
-
-### Simulation Parameters
-
-Additional parameters related to the simulation, such as noise standard deviations for process and measurement noise, are defined.
-
-### Landmark Positions
-
-The positions of landmarks in the environment are specified.
-
-### Main Loop
-
-The main loop iterates over the simulation steps.
-Control inputs (u) are obtained using the doControl function.
-Observations (z) are simulated using the Observation function.
-
-### EKF-SLAM algorithm steps are performed
-Prediction: The state vector is updated using the motion model (function f) and the Jacobian matrix of the motion model (function jacobF).
-Update: For each observed landmark, the algorithm calculates the innovation, Mahalanobis distance, and updates the state and covariance matrix accordingly.
-The simulation results are stored for visualization.
-
-### Animation and Visualization
-
-The Animation function is called to plot the true trajectory, dead reckoning trajectory, estimated trajectory, observed landmarks, and true landmarks.
-The DrawGraph function is called to plot the true trajectory, dead reckoning trajectory, estimated trajectory, and true landmarks.
+Basically, it demonstrates the basic implementation of EKF SLAM for estimating the robot's pose and landmark positions in a simulated environment.
